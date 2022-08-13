@@ -10,9 +10,9 @@ import processing.core.PApplet;
  * 
  * In the draw() method:
  * 2. Use a for loop to draw 300 small ellipses in a diagonal line across
- *    the canvas. Make them a bright color.
+ *    the canvas. Make them a bright color. DONE
  * 
- * 3. Run the program and check the recipe for the expected outcome.
+ * 3. Run the program and check the recipe for the expected outcome. DONE
  * 
  * 4. Now make each ellipse use random values for their x and y coordinates.
  *    Make sure they are inside the canvas.
@@ -32,6 +32,8 @@ import processing.core.PApplet;
 public class MagicWorms extends PApplet {
     static final int WIDTH = 600;
     static final int HEIGHT = 400;
+    int x =0;
+    int y =0;
 
     @Override
     public void settings() {
@@ -45,11 +47,15 @@ public class MagicWorms extends PApplet {
 
     @Override
     public void draw() {
+    	y = (int) random(400);
+    	x = (int) random(600);
     	
-    	
+    	makeMagical();
     	for(int i =0; i<300; i++) {
-    		fill(0,255,0);
-    		ellipse(i,i,10,10);
+    		
+    		
+    		fill(frameCount,i,0);
+    		ellipse(getWormX(i),getWormY(i),10,10);
     	}
     }
 
