@@ -12,12 +12,21 @@ public class TooManyShapes {
 	static Robot rob = new Robot();
 
 	public static void main(String[] args) {
+			
 		//1. Ask the user how many sides they want their shape to be
-		
+			String sides = JOptionPane.showInputDialog("how many sides do you want your shape to be?");
 		//2. Ask the user how many shapes they want
-		
+			String shapes = JOptionPane.showInputDialog("how many shapes do you want?");
+			int numSides = Integer.parseInt(sides);
+			int numShapes = Integer.parseInt(shapes);
+			
 		//3. Call canMakeShape() and save what is returned into a variable
-		
+			if(canMakeShape(numSides)) {
+				
+				int degrees = calculateTurnAngle(numSides);
+				
+				drawPolygons(numSides, numShapes, degrees);
+			}
 		//4. If the shape CAN be drawn
 		
 			//5. Call and save what is returned from calculateTurnAngle()
