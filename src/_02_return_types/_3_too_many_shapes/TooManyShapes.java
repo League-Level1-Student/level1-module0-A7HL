@@ -26,6 +26,8 @@ public class TooManyShapes {
 				int degrees = calculateTurnAngle(numSides);
 				
 				drawPolygons(numSides, numShapes, degrees);
+			} else {
+				JOptionPane.showMessageDialog(null,notEnoughSides());
 			}
 		//4. If the shape CAN be drawn
 		
