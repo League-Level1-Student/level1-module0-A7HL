@@ -30,6 +30,7 @@ public class PhotoQuiz {
 		// variable (from your browser, right click on the image, and select
 		// “Copy Image Address” )
 		String  url = "https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg";
+		String url2 ="https://morethanjustparks.com/wp-content/uploads/2022/04/grand-canyon1.jpg";
 		// 2. create a variable of type "Component" that will hold your image
 		Component comp = createImage(url);
 		// 3. use the "createImage()" method below to initialize your Component
@@ -55,15 +56,22 @@ public class PhotoQuiz {
 		
 		// 10. find another image and create it (might take more than one line
 		// of code)
-		
+		Component comp2 = createImage(url2);
 		// 11. add the second image to the quiz window
-
+		quizWindow.add(comp2);
 		// 12. pack the quiz window
-
+		quizWindow.pack();
 		// 13. ask another question
-
+		String question2 = JOptionPane.showInputDialog("What is this place?");
 		// 14+ check answer, say if correct or incorrect, etc.
-
+		if(question2.equalsIgnoreCase("The Grand Canyon")||question2.equalsIgnoreCase("Grand Canyon")) {
+			System.out.println("CORRECT");
+			quizWindow.remove(comp2);
+		} else {
+			System.out.println("INCORRECT");
+			quizWindow.remove(comp2);
+		}
+		
 	}
 
 	private Component createImage(String imageUrl) {
