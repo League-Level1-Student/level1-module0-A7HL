@@ -27,7 +27,7 @@ public class DrumKit implements MouseListener {
 	public void run() {
 
 		//  Make a JFrame variable and initialize it using "new JFrame()"
-		JFrame frame = new JFrame("Set the title of the frame");
+		JFrame frame = new JFrame("Drum Kit");
 		//  Make the frame visible and
 		// set its default close operation to JFrame.EXIT_ON_CLOSE
 		frame.setVisible(true);
@@ -39,6 +39,8 @@ public class DrumKit implements MouseListener {
 		JPanel pane = new JPanel();
 		//  Add the panel to the frame. (The panel is invisible.)
 		frame.add(pane);
+		//ONLY PUT THE PANEL ON THE FRAME
+		
 		//  Use the image of a drum provided ("snare.jpg") or
 		//  download an image of a drum from the Internet and drop it into the
 		//  Drum Kit recipe package.
@@ -50,7 +52,7 @@ public class DrumKit implements MouseListener {
 		drumLabel = createLabelImage(drum);
 
 		//  Add the label to the panel
-		frame.add(drumLabel);
+		pane.add(drumLabel);
 		frame.pack();
 		//  Call the pack() method on the frame. 
 		// Run your program. Do you see your drum image?
@@ -67,7 +69,7 @@ public class DrumKit implements MouseListener {
 		String cymbal = "cymbal.jpg";
 		cymbalLabel = new JLabel();
 		cymbalLabel = createLabelImage(cymbal);
-		frame.add(cymbalLabel);
+		pane.add(cymbalLabel);
 		frame.pack();
 		cymbalLabel.addMouseListener(this);
 	
@@ -76,18 +78,17 @@ public class DrumKit implements MouseListener {
 	public void mouseClicked(MouseEvent e) {
 		// Print "mouse clicked" to the console. Run your program and watch
 		// the console to see when this is printed.
-		System.out.println("Mouse clicked");
 		JLabel labelClicked = (JLabel) e.getSource(); // This line gets the label
 														// that the mouse
 														// clicked on
 		if(e.getSource()==drumLabel) {
 			String sound = "drum.wav";
-			System.out.println("work plz");
 			playSound(sound);
 		}
 	
 		if(e.getSource()==cymbalLabel) {
-			System.out.println("test");
+			String sound2 = "cymbal.wav";
+			playSound(sound2);
 		}
 		// You can use the drum sound provided ("drum.wav") or	
 		// download another drum sound (.wav) and drop it into the Drum Kit package.
@@ -115,7 +116,7 @@ public class DrumKit implements MouseListener {
 	public static synchronized void playSound(String fileName) {
 		if (canPlaySounds) {
         	// Note: use .wav files  
-			String path = "src/_02_gui_with_help/_3_drum_kit/";
+			String path = "src/_03_gui_with_help/_3_drum_kit/";
 			new Thread(new Runnable() {
 				public void run() {
 					try {
