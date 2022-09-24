@@ -39,6 +39,7 @@ public class DrumKit implements MouseListener {
 		JPanel pane = new JPanel();
 		//  Add the panel to the frame. (The panel is invisible.)
 		frame.add(pane);
+		
 		//ONLY PUT THE PANEL ON THE FRAME
 		
 		//  Use the image of a drum provided ("snare.jpg") or
